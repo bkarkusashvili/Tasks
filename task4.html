@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Task 4</title>
+    <style>
+      * {
+        margin: 0;
+      }
+
+      .container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+      }
+
+      .button {
+        position: relative;
+        display: flex;
+        align-items: center;
+        background-color: white;
+        outline: none;
+      }
+
+      .button span {
+        padding-right: 10px;
+        padding-left: 20px;
+        height: 20px;
+        border: 1px solid black;
+      }
+
+      .button::after,
+      .button::before {
+        content: '';
+        position: absolute;
+        width: 0;
+        height: 0;
+        border-top: 10px solid transparent;
+        border-bottom: 10px solid transparent;
+        top: 50%;
+        transform: translateY(-50%);
+        z-index: 1;
+      }
+
+      .button::after {
+        border-left: 10px solid white;
+        right: -9px;
+      }
+
+      .button::before {
+        border-left: 11px solid black;
+        right: -12px;
+      }
+      .button:last-of-type::before,
+      .button:last-of-type::after {
+        display: none;
+      }
+
+      .button.active span {
+        background-color: red;
+      }
+
+      .button.active::after {
+        border-left-color: red;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="button">
+        <span>Button</span>
+      </div>
+      <div class="button active">
+        <span>Button</span>
+      </div>
+      <div class="button">
+        <span>Button</span>
+      </div>
+    </div>
+  </body>
+</html>
